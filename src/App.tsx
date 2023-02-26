@@ -2,7 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Home } from './Home';
 import { Play} from './Play';
-
+import { Setup } from './Setup'
 
 import {
   HashRouter
@@ -20,6 +20,7 @@ function App() {
       <HashRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/setup" element={<Setup />} />
           <Route path="/play" element={<Play />} />
         </Routes>
       </HashRouter>
