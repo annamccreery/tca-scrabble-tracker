@@ -1,28 +1,14 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-
-const Home = () => (
-  <>
-    <h1>TCA Scrabble Tracker</h1>
-    <h2>Companion App</h2>
-    <Button variant="outline-primary">Play Scrabble</Button>
-    <Card>
-      <Card.Header>
-        LeaderBoard Stat
-      </Card.Header>
-      <Card.Body>
-        Play a game to see your LeaderBoard
-      </Card.Body>
-    </Card>
-  </>
-);
+import { Home } from './Home';
 
 function App() {
   return (
-    <div className="App">
-     <Home />
+    <div className="App m-3">
+      <h1>TCA Scrabble Tracker</h1>
+      <h2>Companion App</h2>
+      <hr />
+      <Home />
     </div>
   );
 }
