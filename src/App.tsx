@@ -1,5 +1,8 @@
+
+import { useState } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { Home } from './Home';
 import { Play} from './Play';
 import { Setup } from './Setup'
@@ -11,7 +14,46 @@ import {
   Router
 } from 'react-router-dom';
 
-function App() {
+import { 
+    GameResult
+    , calculateLeaderboard
+ } from './front-end-model';
+
+const hardcodedGameResults: GameResult[] = [
+  {
+      winner: "Tom"
+      , players: ["Tom", "Taylor"]
+  }
+  , {
+      winner: "Taylor"
+      , players: ["Jack", "Taylor"]
+  }
+  , {
+      winner: "Taylor"
+      , players: ["Tom", "Taylor", "Jack"]
+  }
+  , {
+      winner: "X"
+      , players: ["X", "Joe"]
+  }
+  , {
+      winner: "X"
+      , players: ["X", "Joe"]
+  }
+  , {
+      winner: "Joe"
+      , players: ["X", "Joe"]
+  }
+  , {
+      winner: "Jack"
+      , players: ["X", "Joe", "Jack"]
+  }
+];
+
+const App = () => {
+
+  const [results, setGameResults] = useState(hardcodedGameResults);
+
   return (
     <div className="App m-3">
       <h1>TCA Scrabble Tracker</h1>
@@ -19,7 +61,14 @@ function App() {
       <hr />
       <HashRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route 
+            path="/" 
+            element={
+              <Home 
+                leaderboardData={calculateLeaderboard(results)}
+              />
+            } 
+          />
           <Route path="/setup" element={<Setup />} />
           <Route path="/play" element={<Play />} />
         </Routes>
