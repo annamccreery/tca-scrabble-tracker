@@ -54,6 +54,13 @@ const App = () => {
 
   const [results, setGameResults] = useState(hardcodedGameResults);
 
+  const addGAmeResult = (r: GameResult) => {
+    setGameResults([
+      ...results
+      , r
+    ]);
+  };
+
   return (
     <div className="App m-3">
       <h1>TCA Scrabble Tracker</h1>
@@ -70,7 +77,14 @@ const App = () => {
             } 
           />
           <Route path="/setup" element={<Setup />} />
-          <Route path="/play" element={<Play />} />
+          <Route 
+            path="/play" 
+            element={
+              <Play 
+                addGAmeResultFunc={addGAmeResult}
+              />
+            } 
+          />
         </Routes>
       </HashRouter>
     </div>
