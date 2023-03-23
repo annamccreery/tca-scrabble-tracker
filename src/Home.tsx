@@ -15,7 +15,7 @@ export const Home: React.FC<HomeProps> = ({leaderboardData}) => {
     return (
         <>
             <Button 
-                variant="outline-primary"
+                variant="outline-success"
                 onClick={() => nav("/setup")}
             >
                 Start a Game

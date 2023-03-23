@@ -13,17 +13,26 @@ export interface LeaderboardPlayer {
     avg: string;
 };
 
+export interface SetupInfo {
+    start: string;
+    chosenPlayers: string[];
+}
+
 export type GetPreviousPlayersFunc = (results: GameResult[]) => string[];
 export type CalculateLeaderboardFunc = (results: GameResult[]) => LeaderboardPlayer[];
 
 //
 // Default function implementations...
 //
+
+//string array of previous players
 export const getPreviousPlayers: GetPreviousPlayersFunc = (grs) => {
     
+    //gets all the palyers
     // const allPreviousPlayers = grs.map(x => x.players);
     const allPreviousPlayers = grs.flatMap(x => x.players);
     
+    //gets unique players & then sort them alphabetically
     return [
         ...new Set(allPreviousPlayers)
     ].sort();
