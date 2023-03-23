@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/tca-scrabble-tracker/static/css/main.756af292.css",
+    "main.js": "/tca-scrabble-tracker/static/js/main.c65cab0e.js",
+    "static/js/787.f2b7234d.chunk.js": "/tca-scrabble-tracker/static/js/787.f2b7234d.chunk.js",
+    "index.html": "/tca-scrabble-tracker/index.html",
+    "main.756af292.css.map": "/tca-scrabble-tracker/static/css/main.756af292.css.map",
+    "main.c65cab0e.js.map": "/tca-scrabble-tracker/static/js/main.c65cab0e.js.map",
+    "787.f2b7234d.chunk.js.map": "/tca-scrabble-tracker/static/js/787.f2b7234d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.756af292.css",
+    "static/js/main.c65cab0e.js"
+  ]
+}
