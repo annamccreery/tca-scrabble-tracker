@@ -100,7 +100,7 @@ export const Setup: React.FC<SetupProps> = ({
                 </Form>
             </div>
 
-            <div className="d-flex flex-row">
+            <div>
                 <Form.Group className="mb-3 mr-3" controlId="exampleForm.ControlInput1">
                     <Form.Label></Form.Label>
                     <Form.Control
