@@ -10,45 +10,60 @@ import { Setup } from './Setup'
 import {
   HashRouter
   , Routes
-  , Route,
-  Router
+  , Route
 } from 'react-router-dom';
 
 import { 
     GameResult
-    , calculateLeaderboard,
-    SetupInfo,
-    getPreviousPlayers
+    , calculateLeaderboard
+    , SetupInfo
+    , getPreviousPlayers
+    , getShortestGameDuration
+    , getLongestGameDuration
  } from './front-end-model';
 
 const hardcodedGameResults: GameResult[] = [
   {
       winner: "Tom"
       , players: ["Tom", "Taylor"]
+      , start: "2023-03-24T17:26:05.893Z"
+      , end : "2023-03-24T17:28:05.893Z"
   }
   , {
       winner: "Taylor"
       , players: ["Jack", "Taylor"]
+      , start: "2023-03-24T17:26:05.893Z"
+      , end : "2023-03-24T17:29:05.893Z"
   }
   , {
       winner: "Taylor"
       , players: ["Tom", "Taylor", "Jack"]
+      , start: "2023-03-24T17:26:05.893Z"
+      , end : "2023-03-24T17:29:05.893Z"
   }
   , {
       winner: "X"
       , players: ["X", "Joe"]
+      , start: "2023-03-24T17:26:05.893Z"
+      , end : "2023-03-24T17:29:05.893Z"
   }
   , {
       winner: "X"
       , players: ["X", "Joe"]
+      , start: "2023-03-24T17:26:05.893Z"
+      , end : "2023-03-24T17:29:05.893Z"
   }
   , {
       winner: "Joe"
       , players: ["X", "Joe"]
+      , start: "2023-03-24T17:26:05.893Z"
+      , end : "2023-03-24T17:29:05.893Z"
   }
   , {
       winner: "Jack"
       , players: ["X", "Joe", "Jack"]
+      , start: "2023-03-24T17:26:05.893Z"
+      , end : "2023-03-24T17:45:05.893Z"
   }
 ];
 
@@ -80,6 +95,9 @@ const App = () => {
             element={
               <Home 
                 leaderboardData={calculateLeaderboard(results)}
+                shortestGameDuration={getShortestGameDuration(results)}
+                longestGameDuration={getLongestGameDuration(results)}
+
               />
             } 
           />
