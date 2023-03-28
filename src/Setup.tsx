@@ -85,16 +85,19 @@ export const Setup: React.FC<SetupProps> = ({
 
             <p className='text-success mt-5'>Add Players</p>
 
-            <div className="d-flex justify-content-start">
-                <Form className='success'>
+            <div id= "listResults" className="d-flex justify-content-start">
+                <Form>
                     {
                         chosenPlayers.map(x => (
                             <Form.Check
-                                className='mt-2'
+                                key={x.name}
+                                className='mt-2 custom custom-control-input'
                                 label={x.name}
                                 checked={x.checked}
                                 //e for event
                                 onChange={() => togglePlayer(x.name)}
+                                id={`checkbox-${x.name}`}
+                                type="checkbox"
                             />
                         ))
                     }
