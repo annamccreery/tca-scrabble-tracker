@@ -29,7 +29,7 @@ export const Home: React.FC<HomeProps> = ({
     return (
         <>
             <Button 
-                variant="outline-success"
+                variant="success"
                 onClick={() => nav("/setup")}
             >
                 Start a Game

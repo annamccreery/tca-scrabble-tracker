@@ -3,7 +3,8 @@ import { getPreviousPlayers, SetupInfo } from './front-end-model'
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Alert from 'react-bootstrap/Alert';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export interface SetupProps {
     previousPlayers: string[];
@@ -85,10 +86,10 @@ export const Setup: React.FC<SetupProps> = ({
             <p className='text-success mt-5'>Add Players</p>
 
             <div className="d-flex justify-content-start">
-                <Form>
+                <Form className='success'>
                     {
                         chosenPlayers.map(x => (
-                            <Form.Check //TODO Fix alignment
+                            <Form.Check
                                 className='mt-2'
                                 label={x.name}
                                 checked={x.checked}
@@ -100,24 +101,31 @@ export const Setup: React.FC<SetupProps> = ({
                 </Form>
             </div>
 
-            <div>
-                <Form.Group className="mb-3 mr-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label></Form.Label>
-                    <Form.Control
-                        type="text"
-                        placeholder="Enter new player name"
-                        value={newPlayerName}
-                        onChange={(e) => setNewPlayerName(e.target.value)}
-                    />
-                </Form.Group>
-                <Button
-                    variant="outline-success"
-                    type="submit"
-                    onClick={validateAndAddNewPlayer}
-                >
-                    Add New Player
-                </Button>
-            </div>
+            <>
+                <Form className="inline">
+                    <Form.Group className="mt-5 mb-3" controlId="exampleForm.ControlInput1">
+                        <Row className="align-items-center">
+                            <Col xs="auto">
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Enter new player name"
+                                    value={newPlayerName}
+                                    onChange={(e) => setNewPlayerName(e.target.value)}
+                                />
+                            </Col>
+                            <Col xs="auto">
+                                <Button
+                                    variant="outline-success"
+                                    type="submit"
+                                    onClick={validateAndAddNewPlayer}
+                                >
+                                    Add New Player
+                                </Button>
+                            </Col>
+                        </Row>
+                    </Form.Group>
+                </Form>
+            </>
         </>
 
     );
