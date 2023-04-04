@@ -117,7 +117,7 @@ const App = () => {
             path="/play"
             element={
               <Play
-                addGAmeResultFunc={addGAmeResult}
+                addGameResultFunc={addGAmeResult}
                 setupInfo={setupInfo}
               />
             }
