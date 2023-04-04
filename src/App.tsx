@@ -88,9 +88,13 @@ const App = () => {
 
   return (
     <div className="App m-3">
-      <h1>TCA Scrabble Tracker</h1>
-      <h2>Companion App</h2>
-      <hr />
+        <h1>TCA Scrabble Tracker</h1>
+        <h2>Companion App</h2>
+      {/* desire rounded header, but this was not it */}
+      {/* <div className='border border-dark rounded-circle'>
+        <h1>TCA Scrabble Tracker</h1>
+        <h2>Companion App</h2>
+      </div> */}
       <HashRouter>
         <Routes>
           <Route
