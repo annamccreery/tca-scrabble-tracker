@@ -54,7 +54,7 @@ export const Setup: React.FC<SetupProps> = ({
         setNewPlayerName("");
     };
 
-    //for the player that has been clicked it will toggle only  players that state
+    //for the player that has been clicked it will toggle only players that state
     const togglePlayer = (name: string) => setChosenPlayers(
         chosenPlayers.map(x => ({
             ...x
@@ -87,7 +87,7 @@ export const Setup: React.FC<SetupProps> = ({
 
             {/* see CheckApiExample for green coloring, but it doesn't like type
             https://react-bootstrap.github.io/forms/checks-radios/ */}
-            <div id= "listResults" className="d-flex justify-content-start">
+            <div id= "listResults" className="d-flex px-3">
                 <Form>
                     {
                         chosenPlayers.map(x => (
@@ -107,7 +107,7 @@ export const Setup: React.FC<SetupProps> = ({
             </div>
 
             <>
-                <Form className="inline">
+                <Form className="inline px-3">
                     <Form.Group className="mt-5 mb-3" controlId="exampleForm.ControlInput1">
                         <Row className="align-items-center">
                             <Col xs="auto">
