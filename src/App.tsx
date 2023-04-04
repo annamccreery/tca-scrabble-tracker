@@ -127,7 +127,7 @@ const App = () => {
       
       <footer className='text-success'>
         <p> 
-          <FontAwesomeIcon icon={faLeaf} color="green"/>
+          <FontAwesomeIcon icon={faLeaf} color="green" className='me-2'/>
           Designed By: Anna McCreery Copyright &copy; 2023
         </p>    
       </footer>

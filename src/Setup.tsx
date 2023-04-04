@@ -85,6 +85,8 @@ export const Setup: React.FC<SetupProps> = ({
 
             <p className='text-success mt-5'>Add Players</p>
 
+            {/* see CheckApiExample for green coloring, but it doesn't like type
+            https://react-bootstrap.github.io/forms/checks-radios/ */}
             <div id= "listResults" className="d-flex justify-content-start">
                 <Form>
                     {
@@ -132,4 +134,5 @@ export const Setup: React.FC<SetupProps> = ({
         </>
 
     );
+
 };

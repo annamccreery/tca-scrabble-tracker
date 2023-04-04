@@ -27,7 +27,7 @@ export const Home: React.FC<HomeProps> = ({
     const format = durationFormatter();
 
     return (
-        <>
+        <div className='.bg-success'>
             <Button 
                 variant="success"
                 onClick={() => nav("/setup")}
@@ -83,6 +83,6 @@ export const Home: React.FC<HomeProps> = ({
                     </p>
                 </Card.Body>
             </Card>
-        </>
+        </div>
     )
 };
