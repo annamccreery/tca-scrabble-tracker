@@ -1,14 +1,15 @@
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
 import { GameResult, SetupInfo } from './front-end-model';
 
 interface PlayProps {
-    addGAmeResultFunc: (r: GameResult) => void;
+    addGameResultFunc: (r: GameResult) => void;
     setupInfo: SetupInfo;
 };
 
 export const Play: React.FC<PlayProps> = ({
-    addGAmeResultFunc
+    addGameResultFunc
     , setupInfo
 }) => {
 
@@ -17,7 +18,7 @@ export const Play: React.FC<PlayProps> = ({
     const nav = useNavigate();
 
     const endGame = (winner: string) =>{
-        addGAmeResultFunc({
+        addGameResultFunc({
             winner: winner
             , players: setupInfo.chosenPlayers
             , start: setupInfo.start
