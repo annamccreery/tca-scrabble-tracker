@@ -27,14 +27,15 @@ export const Home: React.FC<HomeProps> = ({
     const format = durationFormatter();
 
     return (
-        <div className='.bg-success'>
+        <div className='bg-light flex-grow-1'>
             <Button 
                 variant="success"
                 onClick={() => nav("/setup")}
+                className="mt-3"
             >
                 Start a Game
             </Button>
-            <Card className='mt-3 overflow-hidden'>
+            <Card className='m-3 overflow-hidden'>
                 <Card.Header>
                     Leader Board Stats
                 </Card.Header>
@@ -70,7 +71,7 @@ export const Home: React.FC<HomeProps> = ({
                     }
                 </Card.Body>
             </Card>
-            <Card>
+            <Card className='m-3 overflow-hidden'>
                 <Card.Header>
                     Game Time Fun Facts
                 </Card.Header>

@@ -125,7 +125,7 @@ const App = () => {
         </Routes>
       </HashRouter>
       
-      <footer className='text-success'>
+      <footer className='text-center mt-3'>
         <p> 
           <FontAwesomeIcon icon={faLeaf} color="green" className='me-2'/>
           Designed By: Anna McCreery Copyright &copy; 2023

@@ -17,7 +17,7 @@ export const Play: React.FC<PlayProps> = ({
 
     const nav = useNavigate();
 
-    const endGame = (winner: string) =>{
+    const endGame = (winner: string) => {
         addGameResultFunc({
             winner: winner
             , players: setupInfo.chosenPlayers
@@ -28,19 +28,20 @@ export const Play: React.FC<PlayProps> = ({
         nav(-2);
     };
     return (
-        <>
-        <h2>Play</h2>
-        <p>Some scoring data here</p>
-        {
-            setupInfo.chosenPlayers.map(x => (
-                <Button 
-                variant="outline-success"
-                onClick={() => endGame(x)}
-            >
-                {x} Won
-            </Button>
-            ))
-        }
-    </>
+        <div className='bg-light flex-grow-1'>
+            <h2 className='mt-2'>Play</h2>
+            <p>Some scoring data here</p>
+            {
+                setupInfo.chosenPlayers.map(x => (
+                    <Button
+                        variant="outline-success"
+                        onClick={() => endGame(x)}
+                        className="mb-3"
+                    >
+                        {x} Won
+                    </Button>
+                ))
+            }
+        </div>
     );
 };

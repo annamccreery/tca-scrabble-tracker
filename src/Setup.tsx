@@ -73,7 +73,7 @@ export const Setup: React.FC<SetupProps> = ({
     };
 
     return (
-        <>
+        <div className='bg-light flex-grow-1'>
             <h2>Setup</h2>
 
             <Button
@@ -131,7 +131,7 @@ export const Setup: React.FC<SetupProps> = ({
                     </Form.Group>
                 </Form>
             </>
-        </>
+        </div>
 
     );
 
