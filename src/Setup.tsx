@@ -34,10 +34,7 @@ export const Setup: React.FC<SetupProps> = ({
             newPlayerName.length == 0
             || chosenPlayers.some(x => x.name.localeCompare(newPlayerName) == 0)
         ) {
-            return;
-            //  (
-            //     <Alert>Enter a unique name</Alert>
-            // )
+            return alert("All new entries must be unique")
 
         }
 
