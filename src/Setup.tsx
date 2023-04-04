@@ -34,8 +34,12 @@ export const Setup: React.FC<SetupProps> = ({
             newPlayerName.length == 0
             || chosenPlayers.some(x => x.name.localeCompare(newPlayerName) == 0)
         ) {
-            return alert("All new entries must be unique")
-
+            //$('.alert').alert()
+            window.alert("All new entries must be unique");
+            setNewPlayerName("");
+            return;
+            // we don't want to directely affect the dom
+            // document.getElementById("exampleForm.ControlInput1").value = "";
         }
 
         setChosenPlayers(
@@ -84,20 +88,38 @@ export const Setup: React.FC<SetupProps> = ({
 
             {/* see CheckApiExample for green coloring, but it doesn't like type
             https://react-bootstrap.github.io/forms/checks-radios/ */}
-            <div id= "listResults" className="d-flex px-3">
+            {/* exmaple for customizing 
+            https://create-react-app.dev/docs/adding-bootstrap/#using-a-custom-theme */}
+            <div id="listResults" className="d-flex px-3">
                 <Form>
                     {
                         chosenPlayers.map(x => (
-                            <Form.Check
-                                key={x.name}
-                                className='mt-2 custom custom-control-input'
-                                label={x.name}
-                                checked={x.checked}
-                                //e for event
-                                onChange={() => togglePlayer(x.name)}
-                                id={`checkbox-${x.name}`}
-                                type="checkbox"
-                            />
+                            <>
+                                <Form.Check
+                                    key={x.name}
+                                    className='mt-2 custom custom-control-input'
+                                    label={x.name}
+                                    checked={x.checked}
+                                    //e for event
+                                    onChange={() => togglePlayer(x.name)}
+                                    id={`checkbox-${x.name}`}
+                                    type="checkbox"
+                                />
+
+                                {/* <label 
+                                    className="btn btn-outline-success" 
+                                >
+                                    <input 
+                                        type="checkbox" 
+                                        className="btn-check"
+                                        checked={x.checked}
+                                        //e for event
+                                        onChange={() => togglePlayer(x.name)}
+                                    ></input>
+                                    {x.name}
+                                </label> */}
+
+                            </>
                         ))
                     }
                 </Form>
@@ -114,6 +136,13 @@ export const Setup: React.FC<SetupProps> = ({
                                     value={newPlayerName}
                                     onChange={(e) => setNewPlayerName(e.target.value)}
                                 />
+                                {/* This is a sample dismissable fade show alert */}
+                                {/* <div className="alert alert-secondary alert-dismissible fade show p-1" role="alert">
+                                    <strong>This name is already entered!</strong>
+                                    <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div> */}
                             </Col>
                             <Col xs="auto">
                                 <Button
