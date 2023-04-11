@@ -92,10 +92,23 @@ export const Setup: React.FC<SetupProps> = ({
             https://create-react-app.dev/docs/adding-bootstrap/#using-a-custom-theme */}
             <div id="listResults" className="d-flex px-3">
                 <Form>
-                    {
-                        chosenPlayers.map(x => (
-                            <>
-                                <Form.Check
+                {
+                    chosenPlayers.map(x =>(
+                        <Form.Check
+                        >
+                            <Form.Check.Input
+                                checked={x.checked}
+                                onChange={() => togglePlayer(x.name)}
+                                className={`${x.checked ? 'bg-success' : 'bg-white'}`}
+                            />
+                            <Form.Check.Label>
+                                {x.name}
+                            </Form.Check.Label>
+                        </Form.Check>
+                    ))
+                } 
+                                {/* working checkbo that is blue (not green) */}
+                                {/* <Form.Check
                                     key={x.name}
                                     className='mt-2 custom custom-control-input'
                                     label={x.name}
@@ -104,7 +117,7 @@ export const Setup: React.FC<SetupProps> = ({
                                     onChange={() => togglePlayer(x.name)}
                                     id={`checkbox-${x.name}`}
                                     type="checkbox"
-                                />
+                                /> */}
 
                                 {/* <label 
                                     className="btn btn-outline-success" 
@@ -118,10 +131,6 @@ export const Setup: React.FC<SetupProps> = ({
                                     ></input>
                                     {x.name}
                                 </label> */}
-
-                            </>
-                        ))
-                    }
                 </Form>
             </div>
 
@@ -157,7 +166,7 @@ export const Setup: React.FC<SetupProps> = ({
                     </Form.Group>
                 </Form>
             </>
-        </div>
+        </div >
 
     );
 
