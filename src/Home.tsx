@@ -9,18 +9,23 @@ interface HomeProps {
     leaderboardData: LeaderboardPlayer[];
     shortestGameDuration: number;
     longestGameDuration: number;
+    averageGameDurationData: {
+        playerCount: number;
+        avgGameDuration: number;
+    }[];
 };
 export const Home: React.FC<HomeProps> = ({
     leaderboardData
     , shortestGameDuration
     , longestGameDuration
+    , averageGameDurationData
 }) => {
-    
+
     console.log(
         leaderboardData
         , shortestGameDuration
         , longestGameDuration
-        );
+    );
 
     const nav = useNavigate();
 
@@ -28,7 +33,7 @@ export const Home: React.FC<HomeProps> = ({
 
     return (
         <div className='bg-light flex-grow-1'>
-            <Button 
+            <Button
                 variant="success"
                 onClick={() => nav("/setup")}
                 className="mt-3"
@@ -41,7 +46,7 @@ export const Home: React.FC<HomeProps> = ({
                 </Card.Header>
                 <Card.Body>
                     {
-                        leaderboardData.length == 0 && 
+                        leaderboardData.length == 0 &&
                         <p>Play a game to see your LeaderBoard... </p>
                     }
                     {
@@ -67,7 +72,7 @@ export const Home: React.FC<HomeProps> = ({
                                     ))
                                 }
                             </tbody>
-                      </Table>
+                        </Table>
                     }
                 </Card.Body>
             </Card>
@@ -76,12 +81,34 @@ export const Home: React.FC<HomeProps> = ({
                     Game Time Fun Facts
                 </Card.Header>
                 <Card.Body>
+                
                     <p>
                         {`${format(shortestGameDuration)} shortest game ever`}
                     </p>
                     <p>
-                    {`${format(longestGameDuration)} longest game ever`}
+                        {`${format(longestGameDuration)} longest game ever`}
                     </p>
+                    {
+                        averageGameDurationData.length > 0 &&
+                        <Table striped bordered>
+                            <thead>
+                                <tr>
+                                    <th>Player Count</th>
+                                    <th>Average Duration</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    averageGameDurationData.map(x => (
+                                        <tr>
+                                            <td>{x.playerCount}</td>
+                                            <td>{`${format(x.avgGameDuration)}`}</td>
+                                        </tr>
+                                    ))
+                                }
+                            </tbody>
+                        </Table>
+                    }
                 </Card.Body>
             </Card>
         </div>
