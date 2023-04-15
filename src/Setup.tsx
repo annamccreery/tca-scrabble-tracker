@@ -84,7 +84,7 @@ export const Setup: React.FC<SetupProps> = ({
                 Start Game
             </Button>
 
-            <p className='text-success mt-5'>Add Players</p>
+            <p className='d-flex text-success mt-5'><strong>Add Players</strong></p>
 
             {/* see CheckApiExample for green coloring, but it doesn't like type
             https://react-bootstrap.github.io/forms/checks-radios/ */}
@@ -107,30 +107,7 @@ export const Setup: React.FC<SetupProps> = ({
                         </Form.Check>
                     ))
                 } 
-                                {/* working checkbo that is blue (not green) */}
-                                {/* <Form.Check
-                                    key={x.name}
-                                    className='mt-2 custom custom-control-input'
-                                    label={x.name}
-                                    checked={x.checked}
-                                    //e for event
-                                    onChange={() => togglePlayer(x.name)}
-                                    id={`checkbox-${x.name}`}
-                                    type="checkbox"
-                                /> */}
 
-                                {/* <label 
-                                    className="btn btn-outline-success" 
-                                >
-                                    <input 
-                                        type="checkbox" 
-                                        className="btn-check"
-                                        checked={x.checked}
-                                        //e for event
-                                        onChange={() => togglePlayer(x.name)}
-                                    ></input>
-                                    {x.name}
-                                </label> */}
                 </Form>
             </div>
 
