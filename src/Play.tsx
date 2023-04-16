@@ -28,22 +28,32 @@ export const Play: React.FC<PlayProps> = ({
 
         nav(-2);
     };
+
     return (
         <div className='bg-light flex-grow-1'>
             <h2 className='mt-2'>Play</h2>
             <p className="text-success mt-5">Select the winner!</p>
             <Stack gap={4} className="col-md-3 mx-auto">
-            {
-                setupInfo.chosenPlayers.map(x => (
-                    <Button
-                        variant="outline-success"
-                        onClick={() => endGame(x)}
-                        
-                    >
-                        {x} Won
-                    </Button>
-                ))
-            }
+
+                {
+                    setupInfo.chosenPlayers.map(x => (
+                        <Button
+                            variant="outline-success"
+                            onClick={() => endGame(x)}
+                        >
+                            {x} Won
+                        </Button>
+                    ))
+                }
+
+                {/* does this need to be an array of chosen players that it iterates through? */}
+                <form>
+                    <label className="form-group m-3 text-success">Current Score</label>
+                    <input type="number" className="border border-success form-control form-rounded"></input>
+                </form>
+
+                <button type="submit" className="btn btn-outline-danger mt-5">End Game</button>
+
             </Stack>
         </div>
     );
