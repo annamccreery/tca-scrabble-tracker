@@ -34,12 +34,9 @@ export const Setup: React.FC<SetupProps> = ({
             newPlayerName.length == 0
             || chosenPlayers.some(x => x.name.localeCompare(newPlayerName) == 0)
         ) {
-            //$('.alert').alert()
-            window.alert("All new entries must be unique");
+            alert("Player already exists");
             setNewPlayerName("");
             return;
-            // we don't want to directely affect the dom
-            // document.getElementById("exampleForm.ControlInput1").value = "";
         }
 
         setChosenPlayers(
@@ -86,10 +83,6 @@ export const Setup: React.FC<SetupProps> = ({
 
             <p className='d-flex text-success mt-5'><strong>Add Players</strong></p>
 
-            {/* see CheckApiExample for green coloring, but it doesn't like type
-            https://react-bootstrap.github.io/forms/checks-radios/ */}
-            {/* exmaple for customizing 
-            https://create-react-app.dev/docs/adding-bootstrap/#using-a-custom-theme */}
             <div id="listResults" className="d-flex px-3">
                 <Form>
                 {
@@ -123,7 +116,7 @@ export const Setup: React.FC<SetupProps> = ({
                                     onChange={(e) => setNewPlayerName(e.target.value)}
                                 />
                                 {/* This is a sample dismissable fade show alert */}
-                                {/* <div className="alert alert-secondary alert-dismissible fade show p-1" role="alert">
+                                {/* <div className="alert alert-danger alert-dismissible fade show p-1" role="alert">
                                     <strong>This name is already entered!</strong>
                                     <button type="button" className="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
