@@ -126,7 +126,7 @@ export const Setup: React.FC<SetupProps> = ({
                             <Col xs="auto">
                                 <Button
                                     variant="outline-success"
-                                    type="submit"
+                                    // type="submit"
                                     onClick={validateAndAddNewPlayer}
                                 >
                                     Add New Player
