@@ -47,12 +47,12 @@ export const Play: React.FC<PlayProps> = ({
                 }
 
                 {/* does this need to be an array of chosen players that it iterates through? */}
-                <form>
+                {/* <form>
                     <label className="form-group m-3 text-success">Current Score</label>
                     <input type="number" className="border border-success form-control form-rounded"></input>
                 </form>
 
-                <button type="submit" className="btn btn-outline-danger mt-5">End Game</button>
+                <button type="submit" className="btn btn-outline-danger mt-5">End Game</button> */}
 
             </Stack>
         </div>
