@@ -106,9 +106,9 @@ export const Setup: React.FC<SetupProps> = ({
 
             <>
                 <Form className="inline px-3">
-                    <Form.Group className="mt-5 mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Group className="mt-5 mb-1" controlId="exampleForm.ControlInput1">
                         <Row className="align-items-center">
-                            <Col xs="auto">
+                            <Col xs="auto" className='mt-2'>
                                 <Form.Control
                                     type="text"
                                     placeholder="Enter new player name"
@@ -123,7 +123,7 @@ export const Setup: React.FC<SetupProps> = ({
                                     </button>
                                 </div> */}
                             </Col>
-                            <Col xs="auto">
+                            <Col xs="auto" className='mt-3'>
                                 <Button
                                     variant="outline-success"
                                     //type="submit" this was causing a nav error
