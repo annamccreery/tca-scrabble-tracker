@@ -4,7 +4,11 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLeaf } from '@fortawesome/free-solid-svg-icons';
-
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import localforage from 'localforage';
 
 import { Home } from './Home';
 import { Play } from './Play';
@@ -72,7 +76,9 @@ const hardcodedGameResults: GameResult[] = [
 ];
 
 const App = () => {
-
+  //
+  //state hooks
+  //
   const [results, setGameResults] = useState(hardcodedGameResults);
 
   const [setupInfo, setSetupInfo] = useState<SetupInfo>({
@@ -80,6 +86,11 @@ const App = () => {
     , chosenPlayers: []
   });
 
+  const [emailKey, setEmailKey] = useState("");
+
+  //
+  // Helper functions
+  //
   const addGAmeResult = (r: GameResult) => {
     setGameResults([
       ...results
@@ -87,15 +98,51 @@ const App = () => {
     ]);
   };
 
+  const saveEmailKey = async() => {
+    try { 
+      await localforage.setItem(
+        "emailKey"
+        , emailKey
+      );  
+    }
+    catch (err) {
+      console.error(err);
+    }
+  };
+
+  //
+  //JSX
+  //
   return (
     <div className="App m-3">
-        <h1>TCA Scrabble Tracker</h1>
-        <h2>Companion App</h2>
+      <h1>TCA Scrabble Tracker</h1>
+      <h2>Companion App</h2>
       {/* desire rounded header, but this was not it */}
       {/* <div className='border border-dark rounded-circle'>
         <h1>TCA Scrabble Tracker</h1>
         <h2>Companion App</h2>
       </div> */}
+      <Form.Group className="mt-5 mb-3" controlId="exampleForm.ControlInput1">
+        <Row className="align-items-center">
+          <Col xs="auto">
+            <Form.Control
+              type="text"
+              placeholder="Email"
+              value={emailKey}
+              onChange={(e) => setEmailKey(e.target.value)}
+            />
+          </Col>
+          <Col xs="auto">
+            <Button
+              variant="outline-success"
+              //type="submit" this was causing a nav error
+              onClick={saveEmailKey}
+            >
+              Save Email
+            </Button>
+          </Col>
+        </Row>
+      </Form.Group>
       <HashRouter>
         <Routes>
           <Route
@@ -130,12 +177,12 @@ const App = () => {
           />
         </Routes>
       </HashRouter>
-      
+
       <footer className='text-center mt-3'>
-        <p> 
-          <FontAwesomeIcon icon={faLeaf} color="green" className='me-2'/>
+        <p>
+          <FontAwesomeIcon icon={faLeaf} color="green" className='me-2' />
           Designed By: Anna McCreery Copyright &copy; 2023
-        </p>    
+        </p>
       </footer>
     </div>
   );
