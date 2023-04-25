@@ -83,10 +83,10 @@ export const Home: React.FC<HomeProps> = ({
                 <Card.Body>
                 
                     <p>
-                        {`${format(shortestGameDuration)} shortest game ever`}
+                        {`Shortest game ever is ${format(shortestGameDuration)}`}
                     </p>
                     <p>
-                        {`${format(longestGameDuration)} longest game ever`}
+                        {`Longest game ever is ${format(longestGameDuration)}`}
                     </p>
                     {
                         averageGameDurationData.length > 0 &&
