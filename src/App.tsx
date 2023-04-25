@@ -117,11 +117,6 @@ const App = () => {
     <div className="App m-3">
       <h1>TCA Scrabble Tracker</h1>
       <h2>Companion App</h2>
-      {/* desire rounded header, but this was not it */}
-      {/* <div className='border border-dark rounded-circle'>
-        <h1>TCA Scrabble Tracker</h1>
-        <h2>Companion App</h2>
-      </div> */}
       <Form.Group className="mt-5 mb-3" controlId="exampleForm.ControlInput1">
         <Row className="align-items-center">
           <Col xs="auto">
