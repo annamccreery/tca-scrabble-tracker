@@ -5,8 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLeaf } from '@fortawesome/free-solid-svg-icons';
 import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import localforage from 'localforage';
 
@@ -98,12 +96,12 @@ const App = () => {
     ]);
   };
 
-  const saveEmailKey = async() => {
-    try { 
+  const saveEmailKey = async () => {
+    try {
       await localforage.setItem(
         "emailKey"
         , emailKey
-      );  
+      );
     }
     catch (err) {
       console.error(err);
@@ -117,27 +115,24 @@ const App = () => {
     <div className="App m-3">
       <h1>TCA Scrabble Tracker</h1>
       <h2>Companion App</h2>
-      <Form.Group className="mt-5 mb-3" controlId="exampleForm.ControlInput1">
-        <Row className="align-items-center">
-          <Col xs="auto">
-            <Form.Control
-              type="text"
-              placeholder="Email"
-              value={emailKey}
-              onChange={(e) => setEmailKey(e.target.value)}
-            />
-          </Col>
-          <Col xs="auto">
-            <Button
-              variant="outline-success"
-              //type="submit" this was causing a nav error
-              onClick={saveEmailKey}
-            >
-              Save Email
-            </Button>
-          </Col>
-        </Row>
+      <Form.Group className="col-md-3 my-4 mx-auto" controlId="exampleForm.ControlInput1">
+        <Form.Control
+          type="text"
+          placeholder="Email"
+          value={emailKey}
+          onChange={(e) => setEmailKey(e.target.value)}
+          className='mb-2'
+        />
+
+        <Button
+          variant="outline-success"
+          onClick={saveEmailKey}
+          className='mb-4'
+        >
+          Save Email
+        </Button>
       </Form.Group>
+
       <HashRouter>
         <Routes>
           <Route
