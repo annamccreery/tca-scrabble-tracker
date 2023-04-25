@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -85,6 +85,29 @@ const App = () => {
   });
 
   const [emailKey, setEmailKey] = useState("");
+
+  //
+  // useEffect Hook
+  //
+  useEffect(
+    () => {
+      //creates async function
+      const loadEmailKey = async() => {
+        try {
+          setEmailKey(
+            await localforage.getItem("emailKey") ?? ""
+          );
+        }
+        catch (err) {
+          console.error(err);
+        }
+      }; 
+
+      //calls the async function
+      loadEmailKey(); 
+    }
+    , [] //this prevents an infinit loop
+  );
 
   //
   // Helper functions
