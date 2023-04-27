@@ -87,7 +87,7 @@ const App = () => {
     , chosenPlayers: []
   });
 
-  const [emailKeyInput, setEmailKey] = useState("");
+  const [emailKeyInput, setEmailKeyInput] = useState("");
 
   //
   // useEffect Hook
@@ -97,7 +97,7 @@ const App = () => {
       //creates async function
       const loadEmailKey = async() => {
         try {
-          setEmailKey(
+          setEmailKeyInput(
             await localforage.getItem("emailKey") ?? ""
           );
         }
@@ -147,7 +147,7 @@ const App = () => {
           type="text"
           placeholder="Email"
           value={emailKeyInput}
-          onChange={(e) => setEmailKey(e.target.value)}
+          onChange={(e) => setEmailKeyInput(e.target.value)}
           className='mb-2'
         />
 
