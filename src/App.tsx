@@ -99,7 +99,7 @@ const App = () => {
   useEffect(
     () => {
       //creates async function
-      const loadEmailKey = async() => {
+      const loadEmailKeyAndGameResults = async() => {
         try {
           const ek = String(await localforage.getItem("emailKey")) ?? "";
 
@@ -112,7 +112,7 @@ const App = () => {
       }; 
 
       //calls the async function
-      loadEmailKey(); 
+      loadEmailKeyAndGameResults(); 
     }
     , [] //this prevents an infinit loop
   );
