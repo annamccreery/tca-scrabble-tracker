@@ -28,6 +28,8 @@ import {
   , getAverageGameDurationByPlayerCount
 } from './front-end-model';
 
+import { saveGameToCloud, loadGamesFromCloud } from './tca-cloud-api';
+
 //I couldn't get rid of the hard coded data just yet
 // const hardcodedGameResults: GameResult[] = [
 //   {
@@ -119,6 +121,15 @@ const App = () => {
   // Helper functions
   //
   const addGAmeResult = (r: GameResult) => {
+    //saving to cloud
+    saveGameToCloud(
+      emailKeySaved
+      , "tcs-scrabble-tracker"
+      , r.end
+      , r
+    );
+
+    //optimistically update the lifted app state
     setGameResults([
       ...results
       , r
