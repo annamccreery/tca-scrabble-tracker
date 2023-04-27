@@ -87,7 +87,7 @@ const App = () => {
     , chosenPlayers: []
   });
 
-  const [emailKey, setEmailKey] = useState("");
+  const [emailKeyInput, setEmailKey] = useState("");
 
   //
   // useEffect Hook
@@ -127,7 +127,7 @@ const App = () => {
     try {
       await localforage.setItem(
         "emailKey"
-        , emailKey
+        , emailKeyInput
       );
     }
     catch (err) {
@@ -146,7 +146,7 @@ const App = () => {
         <Form.Control
           type="text"
           placeholder="Email"
-          value={emailKey}
+          value={emailKeyInput}
           onChange={(e) => setEmailKey(e.target.value)}
           className='mb-2'
         />
