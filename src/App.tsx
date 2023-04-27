@@ -103,8 +103,21 @@ const App = () => {
         try {
           const ek = String(await localforage.getItem("emailKey")) ?? "";
 
-          setEmailKeyInput(ek);
-          setEmailKeySaved(ek);
+          if (ek.length > 0) {
+            const resultsFromCloud = await loadGamesFromCloud(
+              ek
+              , "tca-scrabble-tracker"
+            );
+
+            if (!ignore) {
+              setGameResults(resultsFromCloud);
+            }
+          }
+
+          if (!ignore) {
+            setEmailKeyInput(ek);
+            setEmailKeySaved(ek);
+          }
         }
         catch (err) {
           console.error(err);
@@ -112,9 +125,13 @@ const App = () => {
       }; 
 
       //calls the async function
+      let ignore = false;
       loadEmailKeyAndGameResults(); 
+      return () => {
+        ignore = true;
+      };
     }
-    , [] //this prevents an infinit loop
+    , [emailKeySaved] //this prevents an infinit loop
   );
 
   //
@@ -124,7 +141,7 @@ const App = () => {
     //saving to cloud
     saveGameToCloud(
       emailKeySaved
-      , "tcs-scrabble-tracker"
+      , "tca-scrabble-tracker"
       , r.end
       , r
     );
