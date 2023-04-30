@@ -30,58 +30,10 @@ import {
 
 import { saveGameToCloud, loadGamesFromCloud } from './tca-cloud-api';
 
-//I couldn't get rid of the hard coded data just yet
-// const hardcodedGameResults: GameResult[] = [
-//   {
-//     winner: "Tom"
-//     , players: ["Tom", "Taylor"]
-//     , start: "2023-03-24T17:26:05.893Z"
-//     , end: "2023-03-24T17:28:05.893Z"
-//   }
-//   , {
-//     winner: "Taylor"
-//     , players: ["Jack", "Taylor"]
-//     , start: "2023-03-24T17:26:05.893Z"
-//     , end: "2023-03-24T17:29:05.893Z"
-//   }
-//   , {
-//     winner: "Taylor"
-//     , players: ["Tom", "Taylor", "Jack"]
-//     , start: "2023-03-24T17:26:05.893Z"
-//     , end: "2023-03-24T17:29:05.893Z"
-//   }
-//   , {
-//     winner: "X"
-//     , players: ["X", "Joe"]
-//     , start: "2023-03-24T17:26:05.893Z"
-//     , end: "2023-03-24T17:29:05.893Z"
-//   }
-//   , {
-//     winner: "X"
-//     , players: ["X", "Joe"]
-//     , start: "2023-03-24T17:26:05.893Z"
-//     , end: "2023-03-24T17:29:05.893Z"
-//   }
-//   , {
-//     winner: "Joe"
-//     , players: ["X", "Joe"]
-//     , start: "2023-03-24T17:26:05.893Z"
-//     , end: "2023-03-24T17:29:05.893Z"
-//   }
-//   , {
-//     winner: "Jack"
-//     , players: ["X", "Joe", "Jack"]
-//     , start: "2023-03-24T17:26:05.893Z"
-//     , end: "2023-03-24T17:45:05.893Z"
-//   }
-// ];
-
 const App = () => {
   //
   //state hooks
   //
-  //getting rid of hard coded data
-  //const [results, setGameResults] = useState(hardcodedGameResults);
   const [results, setGameResults] = useState<GameResult[]>([]);
 
   const [setupInfo, setSetupInfo] = useState<SetupInfo>({
