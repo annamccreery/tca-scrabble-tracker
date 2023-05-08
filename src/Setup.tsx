@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { getPreviousPlayers, SetupInfo } from './front-end-model'
+import { SetupInfo } from './front-end-model'
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
