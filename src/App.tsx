@@ -89,7 +89,7 @@ const App = () => {
   //
   // Helper functions
   //
-  const addGAmeResult = (r: GameResult) => {
+  const addGameResult = (r: GameResult) => {
     //saving to cloud
     saveGameToCloud(
       emailKeySaved
@@ -172,7 +172,7 @@ const App = () => {
             path="/play"
             element={
               <Play
-                addGameResultFunc={addGAmeResult}
+                addGameResultFunc={addGameResult}
                 setupInfo={setupInfo}
               />
             }
