@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useState } from 'react';
 
 interface PlayProps {
     addGameResultFunc: (r: GameResult) => void;
@@ -32,6 +33,20 @@ export const Play: React.FC<PlayProps> = ({
         nav(-2);
     };
 
+    const [playersWithScore, setPlayersWithScore] = useState(
+        setupInfo.chosenPlayers.map(x => ({
+            name: x
+            , totalScore: 0
+        }))
+    );
+
+    const [playersCurrentScore, setPlayersCurrentScore] = useState(
+        setupInfo.chosenPlayers.map(x => ({
+            name: x
+            , currentScore: 0
+        }))
+    )
+
     return (
         <div className='bg-light flex-grow-1'>
             <h2 className='mt-2'>Play</h2>
@@ -45,25 +60,51 @@ export const Play: React.FC<PlayProps> = ({
             </Form.Group>
 
             {
-                setupInfo.chosenPlayers.map(x => (
+                playersWithScore.map(x => (
                     <InputGroup className="mb-3">
                         <Button
                             variant="outline-success"
                             className="w-50"
-                            onClick={() => endGame(x)}
+                            onClick={() => endGame(x.name)}
                         >
-                            {x} Won
+                            {x.name} Won
                         </Button>
                         <Form.Control
-                            className="text-center"
+                            className=" ms-3 text-center"
                             type="number"
                             placeholder="Current Score"
+                            value={
+                                playersCurrentScore.filter(
+                                    y => y.name == x.name
+                                )[0].currentScore
+                            }
+                            onChange={
+                                (e) => {
+                                    setPlayersCurrentScore(
+                                    playersCurrentScore.map(y => ({
+                                        ...y
+                                        , currentScore: y.name == x.name ? Number(e.target.value) : y.currentScore
+                                    })))
+                                }
+                            }
                         />
-                        <Form.Control
-                            className="text-center"
-                            type="number"
-                            placeholder="Total Score"
-                        />
+                        <Button
+                            onClick={() => 
+                                setPlayersWithScore(
+                                    playersWithScore.map(y => ({
+                                        ...y 
+                                        , totalScore: y.name == x.name 
+                                            ?  playersCurrentScore.filter(
+                                                z => z.name == y.name
+                                                )[0].currentScore + y.totalScore
+                                            : y.totalScore
+                                    }))
+                                )
+                            }
+                        >
+                            Add Score
+                        </Button>
+                       <span className="ms-5 text-center">{x.totalScore}</span>
                     </InputGroup>
 
                 ))
