@@ -52,65 +52,72 @@ export const Play: React.FC<PlayProps> = ({
             <h2 className='mt-2'>Play</h2>
 
 
-        <Stack gap={3} className="col-md-9 mx-auto">
-            <Form.Group className='d-flex'>
-                <p className="text-success mt-5 mb-0 w-50">Select the winner!</p>
-                <p className="mt-5 mb-0 w-25">Current Score</p>
-                <p className="mt-5 mb-0 w-25">Total Score</p>
-            </Form.Group>
-
-            {
-                playersWithScore.map(x => (
-                    <InputGroup className="mb-3">
-                        <Button
-                            variant="outline-success"
-                            className="w-50"
-                            onClick={() => endGame(x.name)}
-                        >
-                            {x.name} Won
-                        </Button>
-                        <Form.Control
-                            className=" ms-3 text-center"
-                            type="number"
-                            placeholder="Current Score"
-                            value={
-                                playersCurrentScore.filter(
-                                    y => y.name == x.name
-                                )[0].currentScore
-                            }
-                            onChange={
-                                (e) => {
-                                    setPlayersCurrentScore(
-                                    playersCurrentScore.map(y => ({
-                                        ...y
-                                        , currentScore: y.name == x.name ? Number(e.target.value) : y.currentScore
-                                    })))
+            <Stack gap={3} className="col-md-9 mx-auto">
+                <Form.Group className='d-flex'>
+                    <p className="mt-5 mb-0 w-25">Current Score</p>
+                    <p className="mt-5 mb-0 w-25">Total Score</p>
+                    <p className="text-success mt-5 mb-0 w-5">Select the winner!</p>
+                </Form.Group>
+                {
+                    playersWithScore.map(x => (
+                        <InputGroup className="mb-3">
+                            <Form.Control
+                                className="ms-3 text-center"
+                                type="number"
+                                placeholder="Current Score"
+                                value={
+                                    playersCurrentScore.filter(
+                                        y => y.name == x.name
+                                    )[0].currentScore
                                 }
-                            }
-                        />
-                        <Button
-                            onClick={() => 
-                                setPlayersWithScore(
-                                    playersWithScore.map(y => ({
-                                        ...y 
-                                        , totalScore: y.name == x.name 
-                                            ?  playersCurrentScore.filter(
-                                                z => z.name == y.name
+                                onChange={
+                                    (e) => {
+                                        setPlayersCurrentScore(
+                                            playersCurrentScore.map(y => ({
+                                                ...y
+                                                , currentScore: y.name == x.name ? Number(e.target.value) : y.currentScore
+                                            })))
+                                            
+                                    }
+                                }
+                            />
+                            <Button
+                                variant="outline-success"
+                                className=""
+                                onClick={() =>
+                                    setPlayersWithScore(
+                                        playersWithScore.map(y => ({
+                                            ...y
+                                            , totalScore: y.name == x.name
+                                                ? playersCurrentScore.filter(
+                                                    z => z.name == y.name
                                                 )[0].currentScore + y.totalScore
-                                            : y.totalScore
-                                    }))
-                                )
-                            }
-                        >
-                            Add Score
-                        </Button>
-                       <span className="ms-5 text-center">{x.totalScore}</span>
-                    </InputGroup>
+                                                : y.totalScore
+                                        }))
+                                    )
+                                }
+                            >
+                                Add Score
+                            </Button>
+                            <Form.Control
+                                placeholder='Total Score'
+                                className="text-center"
+                                value={x.totalScore}
+                            />
+                            <Button
+                                variant="outline-success"
+                                className="w-25"
+                                onClick={() => endGame(x.name)}
+                            >
+                                {x.name} Won
+                            </Button>
+                        </InputGroup>
 
-                ))
-            }
 
-        </Stack>
-    </div>
+                    ))
+                }
+
+            </Stack>
+        </div>
     );
 };
