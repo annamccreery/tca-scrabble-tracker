@@ -55,8 +55,9 @@ export const Play: React.FC<PlayProps> = ({
             <Stack gap={3} className="col-md-9 mx-auto">
                 <Form.Group className='d-flex'>
                     <p className="mt-5 mb-0 w-25">Current Score</p>
+                    <p className="mt-5 mb-0 w-25">Click Add</p>
                     <p className="mt-5 mb-0 w-25">Total Score</p>
-                    <p className="text-success mt-5 mb-0 w-5">Select the winner!</p>
+                    <p className="text-success mt-5 mb-0 w-25">Select the winner!</p>
                 </Form.Group>
                 {
                     playersWithScore.map(x => (
