@@ -2,7 +2,7 @@
   "name": "tca-scrabble-tracker",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://2023-spring-adv-fe-tuth.github.io/tca-scrabble-tracker",
+  "homepage": "https://amccreery.github.io/tca-scrabble-tracker",
   "dependencies": {
     "@aws-sdk/util-dynamodb": "^3.321.1",
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
